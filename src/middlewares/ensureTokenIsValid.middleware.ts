@@ -7,7 +7,7 @@ export const ensureTokenIsValidMiddleware = async (req: Request, res: Response, 
     let token = req.headers.authorization
 
     if(!token) {
-        throw new AppError("Missing bearer token.", 401)
+        throw new AppError("Missing bearer token", 401)
     }
 
     token = token.split(" ")[1]

@@ -17,5 +17,5 @@ export const userReturnSchema = userSchema.extend({
     deletedAt: z.date().nullable()
 }).omit({password: true})
 
-export const userUpdateSchema = userSchema.partial()
+export const userUpdateSchema = userSchema.omit({password: true}).partial()
 export const userReturnMultipleSchema = userReturnSchema.array()

@@ -13,7 +13,7 @@ export class Address {
     zipCode: string
 
     @Column({type: "varchar", length: 6, nullable: true})
-    number?: number | undefined | null
+    number?: string | undefined | null
 
     @Column({length: 20})
     city: string
