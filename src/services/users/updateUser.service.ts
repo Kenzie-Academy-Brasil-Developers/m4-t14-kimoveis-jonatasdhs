@@ -13,7 +13,7 @@ export const updateUserService = async (userData: IUserUpdate, id: number, userV
     
     if(!user) throw new AppError("User not found", 404)
 
-    if(!userValid.admin && user.id !== userValid.id) throw new AppError("Insufficient permission", 404)
+    if(!userValid.admin && user.id !== userValid.id) throw new AppError("Insufficient permission", 403)
     
     const newUser: User = await userRepository.save({
         ...user,

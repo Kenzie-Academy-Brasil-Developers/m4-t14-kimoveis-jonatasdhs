@@ -90,7 +90,7 @@ describe('POST /users', () => {
       status: 409,
       bodyMessage: { message: 'Email already exists' },
     };
-
+    
     expect(response.status).toBe(expectResults.status);
 
     expect(response.body).toStrictEqual(expectResults.bodyMessage);

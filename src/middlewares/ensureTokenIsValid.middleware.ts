@@ -33,7 +33,7 @@ export const ensureTokenIsValidMiddleware = async (req: Request, res: Response, 
 export const ensureUserIsAdmin = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
     const admin: boolean = req.user.admin
 
-    if(!admin) throw new AppError("Insufficient Permission", 401)
+    if(!admin) throw new AppError("Insufficient permission", 403)
 
     next()
 }

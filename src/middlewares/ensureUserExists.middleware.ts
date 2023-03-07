@@ -1,10 +1,10 @@
-import { NextFunction, Request } from "express";
+import { NextFunction, Request, Response } from "express";
 import { Repository } from "typeorm";
 import { AppDataSource } from "../data-source";
 import { User } from "../entities";
 import { AppError } from "../errors";
 
-export const ensureUserExistsMiddleware = async (req: Request, res: Response, next: NextFunction): Promise<void> => {
+export const ensureUserExistsMiddleware = async (req: Request, res: Response, next: NextFunction) => {
     const id: number = parseInt(req.params.id)
 
     const userRepository: Repository<User> = AppDataSource.getRepository(User)

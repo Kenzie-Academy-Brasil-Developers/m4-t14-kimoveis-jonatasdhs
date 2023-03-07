@@ -1,6 +1,6 @@
 import { Response, Request } from "express";
-import { IUserUpdate } from "../interfaces/user.interfaces";
-import { updateUserService } from "../services/users/updateUser.service";
+import { IUserUpdate } from "../../interfaces/user.interfaces";
+import { updateUserService } from "../../services/users/updateUser.service";
 
 export const updateUserController = async (req: Request, res: Response): Promise<Response> => {
     const newUserData: IUserUpdate = req.body
