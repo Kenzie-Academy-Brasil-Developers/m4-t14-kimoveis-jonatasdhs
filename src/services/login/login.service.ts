@@ -22,7 +22,6 @@ export const loginService = async (loginData: ILogin): Promise<any> => {
     const passwordValid: boolean = await compare(loginData.password, user.password)
     
     if(!passwordValid) {
-        console.log("Invalid credentials", loginData, user.password);
         
         throw new AppError("Invalid credentials", 401)
     }
