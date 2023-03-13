@@ -1,4 +1,3 @@
-import { hashSync } from "bcryptjs";
 import { Repository } from "typeorm";
 import { AppDataSource } from "../../data-source";
 import { User } from "../../entities";
@@ -11,8 +10,6 @@ export const createUserService = async (userData: IUserRequest): Promise<IUserRe
     const emailExists = await userRepository.findOne({where: {email: userData.email}})
     
     if(emailExists) throw new AppError("Email already exists", 409)
-    
-    userData.password = hashSync(userData.password, 10)
 
     const user: User = userRepository.create(userData)
     
