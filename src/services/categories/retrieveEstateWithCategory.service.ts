@@ -5,9 +5,6 @@ import { AppError } from "../../errors"
 
 export const retrieveEstateWithCategoryService = async (id: number) => {
     const categoryRepository: Repository<Category> = AppDataSource.getRepository(Category)
-
-    const categories = categoryRepository.find()
-    console.log(categories, id);
     
     const categoryExists = categoryRepository.findOneBy({id})
 

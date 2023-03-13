@@ -18,10 +18,14 @@ export const loginService = async (loginData: ILogin): Promise<any> => {
     if(!user) {
         throw new AppError("Invalid credentials", 401)
     }
-    
+
     const passwordValid: boolean = await compare(loginData.password, user.password)
     
-    if(!passwordValid) throw new AppError("Invalid credentials", 401)
+    if(!passwordValid) {
+        console.log("Invalid credentials", loginData, user.password);
+        
+        throw new AppError("Invalid credentials", 401)
+    }
     
     const token: string = jwt.sign(
         {

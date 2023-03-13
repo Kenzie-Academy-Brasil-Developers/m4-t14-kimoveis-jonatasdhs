@@ -1,5 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn, ManyToOne, Timestamp} from 'typeorm'
-import { Address, Category } from './index'
+import { Entity, PrimaryGeneratedColumn, Column, CreateDateColumn, UpdateDateColumn, OneToOne, JoinColumn, ManyToOne, Timestamp, OneToMany} from 'typeorm'
+import { Address, Category, Schedule } from './index'
 
 @Entity('real_estate')
 
@@ -29,5 +29,8 @@ export class RealEstate {
 
     @ManyToOne(() => Category, {nullable: true})
     category?: Category | undefined | null
+
+    @OneToMany(() => Schedule, (schedules) => schedules.realEstate)
+    schedules: Schedule[]
 
 }
